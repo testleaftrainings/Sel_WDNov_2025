@@ -1,0 +1,41 @@
+3690
+
+Recap:
+
+1) Cucmber : How to current a feature file , without providing the endpoint like .feature?
+attribute : tags --> logical opertions like and, not, or
+2) base class --> @AbstractTestNGCucumberTests
+    @BeforeMethod @AfterMethod --> hooks layer in optionals now
+3) Parameterization : 
+    Static : ("" , '')  in feature file
+    Dynamic : #Scenario Outline: scenario description
+#	Given a precondition has value <param_1>
+#		And something with <param_2>
+#		Then check <param_3> is the output
+#		
+#		Examples:
+#		| param_1 | param_2 | param_3 |
+#		| value1_1 | value1_2 | value1_3 |
+#		| value2_1 | value2_2 | value2_3 |
+#		| value3_1 | value3_2 | value3_3 |
+
+4) Type casting problem in the stepdefinition layer is handled using regex --> (.*)$
+  feature file no.1                             feature file no.2
+  Then check <param_3> is the output             Then check <param_3> is the input
+
+
+  @Then("check (.*)$ is the output") --> 100%  --> unDefiniedStepException
+  public void output(){
+
+  }
+
+  @Then("check (.*)$ is the input") -->  80%
+  public void input(){
+    
+  }
+
+
+
+
+
+
